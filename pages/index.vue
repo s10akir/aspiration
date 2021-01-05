@@ -1,72 +1,75 @@
 <template>
-  <div class="container">
+  <div
+    id="aspiration"
+    class="d-flex align-items-center justify-content-center wf-hannari"
+    :style="{ height: `${height}px` }"
+  >
     <div>
-      <logo />
-      <h1 class="title">
-        nuxtjs
-      </h1>
-      <h2 class="subtitle">
-        My astonishing Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div class="text-center py-4">
+        <h1 class>{{ thisYear }}年の抱負</h1>
+      </div>
+      <div class="d-flex">
+        <p class="vertical-rl text-nowrap display-1 order-2 mx-0 ml-2 wf-hannari">
+          <strong>
+            二度寝は
+            <br />&emsp;一日一時間
+          </strong>
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
-  }
+  name: 'Index',
+  data() {
+    return {
+      height: 0,
+      thisYear: new Date().getFullYear(),
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleResize() {
+      this.height = window.innerHeight
+    },
+  },
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang="css" scoped>
+#aspiration {
+  width: 100vw;
+  height: 100vh;
+}
+
+.avatar {
+  width: 24rem;
+  height: 24rem;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 100;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  border-bottom: solid 0.1rem black;
 }
 
 .subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 200;
 }
 
-.links {
-  padding-top: 15px;
+a,
+a:link,
+a:visited {
+  color: black;
 }
 </style>

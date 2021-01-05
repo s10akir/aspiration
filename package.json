@@ -1,8 +1,8 @@
 {
-  "name": "nuxtjs",
+  "name": "aspiration",
   "version": "1.0.0",
-  "description": "My astonishing Nuxt.js project",
-  "author": "msweeneydev",
+  "description": "kakizome",
+  "author": "Akira Shinohara <akira.shinohara@mojamoja.cloud>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,7 +10,10 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "bootstrap-vue": "^2.21.2",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.0.0",
+    "sass-loader": "^10.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
